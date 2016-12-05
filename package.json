@@ -3,6 +3,7 @@
   "main": "./lib/linked-data-fragment-server-atom",
   "version": "0.0.0",
   "description": "A short description of your package",
+  "author": "Constantin Kondratyev",
   "keywords": [
     "linked data fragment",
     "semantic web",
