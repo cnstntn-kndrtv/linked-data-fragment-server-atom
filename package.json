@@ -1,0 +1,25 @@
+{
+  "name": "linked-data-fragment-server-atom",
+  "main": "./lib/linked-data-fragment-server-atom",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [
+    "linked data fragment",
+    "semantic web",
+    "rdf",
+    "owl",
+    "sparql",
+    "server"
+  ],
+  "activationCommands": {
+    "atom-workspace": "linked-data-fragment-server-atom:toggle"
+  },
+  "repository": "https://github.com/atom/linked-data-fragment-server-atom",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "ldf-server": "latest"
+  }
+}

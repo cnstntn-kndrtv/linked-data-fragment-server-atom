@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle linked-data-fragment-server-atom",
+        "command": "linked-data-fragment-server-atom:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "linked-data-fragment-server-atom",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "linked-data-fragment-server-atom:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
