@@ -1,0 +1,70 @@
+{
+  "title": "Linked Data Fragments server",
+  "baseURL": "/",
+
+  "port": "4000",
+  "workers": 1,
+
+  "datasources": {
+    "un-1": {
+      "title": "unldc-1",
+      "type": "TurtleDatasource",
+      "description": "description description",
+      "settings": { "url": "data//unldc-1.ttl" }
+    },
+    "un-2": {
+      "title": "unldc-2",
+      "type": "TurtleDatasource",
+      "description": "description description",
+      "settings": { "url": "data//unldc-1.ttl" }
+    },
+    "un-3": {
+      "title": "unldc-3",
+      "type": "TurtleDatasource",
+      "description": "description description",
+      "settings": { "url": "data//unldc-3.ttl" }
+    }
+  },
+
+  "dereference": {},
+
+  "prefixes": {
+    "rdf":   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs":  "http://www.w3.org/2000/01/rdf-schema#",
+    "owl":   "http://www.w3.org/2002/07/owl#",
+    "xsd":   "http://www.w3.org/2001/XMLSchema#",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+    "void":  "http://rdfs.org/ns/void#"
+  },
+
+  "routers": [
+    "DatasourceRouter",
+    "TriplePatternRouter",
+    "PageRouter"
+  ],
+
+  "controllers": [
+    "SummaryController",
+    "TimegateController",
+    "TriplePatternFragmentsController",
+    "AssetsController",
+    "DereferenceController",
+    "NotFoundController"
+  ],
+
+  "response": {
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Accept-Datetime",
+      "Access-Control-Expose-Headers": "Content-Location,Link,Memento-Datetime"
+    }
+  },
+
+  "extensions": {
+    "TriplePatternFragmentsController": [
+      "MementoControllerExtension"
+    ]
+  },
+
+  "logging": { "enabled": true, "file": "./access.log" }
+}

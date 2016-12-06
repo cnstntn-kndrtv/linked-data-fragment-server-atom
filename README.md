@@ -1,4 +1,4 @@
-# linked-data-fragment-server-atom package
+# Linked data fragments query and develop in Atom
 
 A short description of your package.
 

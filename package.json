@@ -1,8 +1,8 @@
 {
-  "name": "linked-data-fragment-server-atom",
-  "main": "./lib/linked-data-fragment-server-atom",
-  "version": "0.0.0",
-  "description": "A short description of your package",
+  "name": "linked-data-fragments-atom",
+  "main": "./lib/linked-data-fragments-atom",
+  "version": "0.1.0",
+  "description": "Linked data fragments query and development in Atom",
   "author": "Constantin Kondratyev",
   "keywords": [
     "linked data fragment",
@@ -13,12 +13,18 @@
     "server"
   ],
   "activationCommands": {
-    "atom-workspace": "linked-data-fragment-server-atom:toggle"
+    "atom-workspace": "linked-data-fragments-atom:toggle"
   },
-  "repository": "https://github.com/atom/linked-data-fragment-server-atom",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/cnstntn-kndrtv/linked-data-fragments-atom.git"
+  },
+  "bugs": {
+      "url": "https://github.com/cnstntn-kndrtv/linked-data-fragments-atom/issues"
+  },
   "license": "MIT",
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": "*"
   },
   "dependencies": {
     "ldf-server": "latest"

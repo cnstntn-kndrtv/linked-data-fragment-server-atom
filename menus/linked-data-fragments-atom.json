@@ -2,8 +2,8 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Toggle linked-data-fragment-server-atom",
-        "command": "linked-data-fragment-server-atom:toggle"
+        "label": "Toggle linked-data-fragments-atom",
+        "command": "linked-data-fragments-atom:toggle"
       }
     ]
   },
@@ -12,11 +12,11 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "linked-data-fragment-server-atom",
+          "label": "linked-data-fragments-atom",
           "submenu": [
             {
               "label": "Toggle",
-              "command": "linked-data-fragment-server-atom:toggle"
+              "command": "linked-data-fragments-atom:toggle"
             }
           ]
         }
