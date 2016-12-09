@@ -6,7 +6,7 @@ let _ = require('lodash')
   , IndexDatasource = ldfs.datasources.IndexDatasource
   , ViewCollection = ldfs.views.ViewCollection;
 
-let config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
+let config = JSON.parse(fs.readFileSync(__dirname + '/../config-server.json')),
   workers = config.workers || 1,
   protocolMatch = (config.baseURL || '').match(/^(\w+):/),
   protocol = config.protocol = protocolMatch ? protocolMatch[1] : 'http',

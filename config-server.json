@@ -10,19 +10,19 @@
       "title": "unldc-1",
       "type": "TurtleDatasource",
       "description": "description description",
-      "settings": { "url": "data//unldc-1.ttl" }
+      "settings": { "url": "/Users/constantin/Desktop/data/unldc-1.ttl" }
     },
     "un-2": {
       "title": "unldc-2",
       "type": "TurtleDatasource",
       "description": "description description",
-      "settings": { "url": "data//unldc-1.ttl" }
+      "settings": { "url": "/Users/constantin/Desktop/data/unldc-1.ttl" }
     },
     "un-3": {
       "title": "unldc-3",
       "type": "TurtleDatasource",
       "description": "description description",
-      "settings": { "url": "data//unldc-3.ttl" }
+      "settings": { "url": "/Users/constantin/Desktop/data/unldc-3.ttl" }
     }
   },
 
@@ -45,11 +45,10 @@
 
   "controllers": [
     "SummaryController",
-    "TimegateController",
     "TriplePatternFragmentsController",
-    "AssetsController",
     "DereferenceController",
-    "NotFoundController"
+    "NotFoundController",
+    "ErrorController"
   ],
 
   "response": {

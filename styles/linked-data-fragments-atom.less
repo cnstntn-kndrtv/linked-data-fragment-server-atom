@@ -2,7 +2,35 @@
 //
 // See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
 // for a full listing of what's available.
+@import "octicon-mixins";
 @import "ui-variables";
 
-.linked-data-fragments-atom {
+.ldfa {
+    // background-color: @base-background-color;
+
+    .ldfa-panel {
+        // background-color: @base-background-color;
+    }
+
+    overflow: auto;
+
+    .panels-row {
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
+    }
+
+    .package-panel {
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
+        flex: 1;
+
+        .list-group {
+            overflow: hidden;
+        }
+
+        .inset-panel {
+            width: 100%;
+        }
+    }
+
 }

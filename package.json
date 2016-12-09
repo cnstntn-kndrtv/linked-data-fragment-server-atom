@@ -1,32 +1,35 @@
 {
-  "name": "linked-data-fragments-atom",
-  "main": "./lib/linked-data-fragments-atom",
-  "version": "0.1.0",
-  "description": "Linked data fragments query and development in Atom",
-  "author": "Constantin Kondratyev",
-  "keywords": [
-    "linked data fragment",
-    "semantic web",
-    "rdf",
-    "owl",
-    "sparql",
-    "server"
-  ],
-  "activationCommands": {
-    "atom-workspace": "linked-data-fragments-atom:toggle"
-  },
-  "repository": {
-      "type": "git",
-      "url": "https://github.com/cnstntn-kndrtv/linked-data-fragments-atom.git"
-  },
-  "bugs": {
-      "url": "https://github.com/cnstntn-kndrtv/linked-data-fragments-atom/issues"
-  },
-  "license": "MIT",
-  "engines": {
-    "atom": "*"
-  },
-  "dependencies": {
-    "ldf-server": "latest"
-  }
+    "name": "linked-data-fragments-atom",
+    "main": "./lib/ldfa-main",
+    "version": "0.1.0",
+    "description": "Linked data fragments query and development in Atom",
+    "author": "Constantin Kondratyev",
+    "homepage": "",
+    "keywords": [
+        "linked data fragment",
+        "semantic web",
+        "rdf",
+        "owl",
+        "sparql",
+        "server"
+    ],
+    "activationCommands": {
+        "atom-workspace": "linked-data-fragments-atom:startServer"
+    },
+    "readmeFilename": "README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cnstntn-kndrtv/linked-data-fragments-atom.git"
+    },
+    "bugs": {
+        "url": "https://github.com/cnstntn-kndrtv/linked-data-fragments-atom/issues"
+    },
+    "license": "MIT",
+    "engines": {
+        "atom": ">=1.0.0 <2.0.0"
+    },
+    "dependencies": {
+        "ldf-server": "latest",
+        "atom-space-pen-views": "latest"
+    }
 }

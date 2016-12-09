@@ -1,0 +1,27 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+
+# 'context-menu':
+#   'atom-text-editor': [
+#     {
+#       'label': 'Toggle linked-data-fragments-atom'
+#       'command': 'linked-data-fragments-atom:start'
+#     }
+#   ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'linked-data-fragments-atom'
+      'submenu': [
+        {
+          'label': 'Start server'
+          'command': 'linked-data-fragments-atom:startServer'
+        },
+        {
+          'label': 'Stop server'
+          'command': 'linked-data-fragments-atom:stopServer'
+        }
+      ]
+    ]
+  }
+]
