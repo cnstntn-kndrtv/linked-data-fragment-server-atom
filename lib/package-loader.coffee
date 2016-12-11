@@ -5,7 +5,7 @@ getNotLoadedPackages = (packages) ->
             notLoaded.push(pack)
     notLoaded
     
-    # notloaded = packages.map (p): -> if !atom.packages.isPackageLoaded(p) then p
+    # notloaded = packages.map (p): -> p if !atom.packages.isPackageLoaded(p)
 
 checkForPackageDependencies = (packages) ->
     getNotLoadedPackages(packages)
