@@ -12,6 +12,9 @@ module.exports = class EventBasedDataObject
 
     onUpdate: (callback) ->
         @emitter.on 'update', callback
+        
+    #addResaulsUpdateListener
+    #addDataSourceUpdateListener
 
         ###
   https://www.npmjs.com/package/event-kit
