@@ -9,3 +9,7 @@ module.exports = class EndpointsListView extends View
                     @span class: '', 'text'
 
     initialize: ->
+
+        ###
+https://www.npmjs.com/package/pathwatcher
+###
