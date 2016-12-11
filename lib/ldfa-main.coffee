@@ -24,7 +24,21 @@ module.exports = LinkedDataFragmentsAtom =
         # register commands
         @subscriptions.add atom.commands.add 'atom-workspace', 'linked-data-fragments-atom:startServer': => @startServer()
         @subscriptions.add atom.commands.add 'atom-workspace', 'linked-data-fragments-atom:stopServer': => @stopServer()
+###
 
+  switch (data.cmd) {
+    case 'start':
+      self.postMessage('WORKER STARTED: ' + data.msg);
+      break;
+    case 'stop':
+      self.postMessage('WORKER STOPPED: ' + data.msg + '. (buttons will no longer work)');
+      self.close(); // Terminates the worker.
+      break;
+    default:
+      self.postMessage('Unknown command: ' + data.msg);
+  };
+
+###
     deactivate: ->
         console.log 'LDFA deactivated'
         @subscriptions.dispose()
