@@ -1,5 +1,5 @@
 # Linked data fragments query and develop in Atom
 
-A short description of your package.
+Feci quod potui faciant meliora potentes
 
 ![A screenshot of your package](http://i.giphy.com/50i6YRZxEiqkM.gif)
