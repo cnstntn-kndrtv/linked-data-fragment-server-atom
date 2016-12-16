@@ -6,17 +6,16 @@ module.exports = LinkedDataFragmentsAtom =
     config: require './config.coffee'
     subscriptions: null
 
-    LDFAViewDeserializer:
-        name: 'LDFAView'
-        deserializer: (satet) -> createLDFAView(state)
+    # LDFAViewDeserializer:
+    #     name: 'LDFAView'
+    #     deserializer: (state) -> createLDFAView(state)
 
-    activate: ->
-        # @checkForDependencies()
+    activate: (state) ->
 
         atom.workspace.addOpener (filePath) =>
             @createLDFAView(uri: ViewURI) if filePath is ViewURI
 
-        atom.deserializers.add(@LDFAViewDeserializer)
+        # atom.deserializers.add(@LDFAViewDeserializer)
 
         # events subscribtion
         @subscriptions = new CompositeDisposable
@@ -24,26 +23,10 @@ module.exports = LinkedDataFragmentsAtom =
         # register commands
         @subscriptions.add atom.commands.add 'atom-workspace', 'linked-data-fragments-atom:startServer': => @startServer()
         @subscriptions.add atom.commands.add 'atom-workspace', 'linked-data-fragments-atom:stopServer': => @stopServer()
-###
 
-  switch (data.cmd) {
-    case 'start':
-      self.postMessage('WORKER STARTED: ' + data.msg);
-      break;
-    case 'stop':
-      self.postMessage('WORKER STOPPED: ' + data.msg + '. (buttons will no longer work)');
-      self.close(); // Terminates the worker.
-      break;
-    default:
-      self.postMessage('Unknown command: ' + data.msg);
-  };
-
-###
     deactivate: ->
         console.log 'LDFA deactivated'
-        @subscriptions.dispose()
-        # @packageDependenciesWarningView.destroy()
-        # @packageDependenciesWarningModal.destroy()
+        # @subscriptions.dispose()
         # !!!!! destroy LDFAView !!!!!!
 
     # Returns an object that can be retrieved when package is activated
@@ -83,7 +66,22 @@ module.exports = LinkedDataFragmentsAtom =
                 visible: false)
             @packageDependenciesWarningModal.show()
 
-            ###
-                    @packageDependenciesWarningView.destroy()
-                    @packageDependenciesWarningModal.destroy()
-            ###
+###
+
+@packageDependenciesWarningView.destroy()
+@packageDependenciesWarningModal.destroy()
+
+commnds
+
+  switch (data.cmd) {
+    case 'start':
+      self.postMessage('WORKER STARTED: ' + data.msg);
+      break;
+    case 'stop':
+      self.postMessage('WORKER STOPPED: ' + data.msg + '. (buttons will no longer work)');
+      self.close(); // Terminates the worker.
+      break;
+    default:
+      self.postMessage('Unknown command: ' + data.msg);
+  };
+###

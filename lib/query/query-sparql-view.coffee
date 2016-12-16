@@ -5,45 +5,30 @@ module.exports = class QueryView extends View
         @div class: 'atom-panel padded', =>
             @div class: 'inset-panel', =>
                 @div class: 'panel-heading', 'Query'
-                @div class: 'panel-body padded', =>
+                @div class: 'panel-body padded height-full', =>
                     @subview 'queryEditor', new TextEditorView(placeHolderText: 'type your SPARQL query here')
                     @div class:'block padded', =>
                         @button outlet: 'send', class:'btn btn-primary icon icon-playback-play', 'Execute'
 
     initialize: ->
         # console.log @queryEditor
-        @queryEditor.element.style.height = '300px'
+        @queryEditor.element.style.minHeight = '300px'
+        @queryEditor.element.style.height = '100%'
+        @queryEditor.element.style.width = '100%'
         @setGrammar()
         @focusQueryEditor()
-        # @queryEditor.setText(global.myVar)
 
-        @send.on 'click', => @sendQuery()
+    setQueryText: (str) ->
+        @queryEditor.setText(str)
 
-        global.LDFAData.onUpdate(@fn1)
-        global.LDFAData.onUpdate(@fn2)
-        console.log '2'
-        global.LDFAData.set('q')
+    getQueryText: () ->
+        @queryEditor.getText()
 
-    fn1: () ->
-        console.log 'Q - ', global.LDFAData.get()
-
-    fn2: () ->
-        console.log 'Q2 - ', global.LDFAData.get()
-
-    getSubjectValue: -> @subject.context.value
-
-    getPredicateValue: -> @predicate.context.value
-
-    getObjectValue: -> @object.context.value
-
-    createQueryString: ->
-        'txt'
-
-    sendQuery: ->
-        console.log @createQueryString()
-        console.log 'te text', @queryEditor.getText()
+    onSendButton: (cb) ->
+        @send.on 'click', cb
 
     setGrammar: ->
+        # TODO sparql grammar
         @gram = atom.grammars.grammarForScopeName('source.coffee')
         if !@gram
           @loadPackages('language-coffee-script')
@@ -52,5 +37,3 @@ module.exports = class QueryView extends View
 
     focusQueryEditor: ->
         @queryEditor.focus()
-
-    # тестовое поле с подсветкой ситаксиса спаркл передать в клиент

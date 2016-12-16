@@ -2,23 +2,26 @@
 //
 // See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
 // for a full listing of what's available.
-@import "octicon-mixins";
 @import "ui-variables";
 
 .ldfa {
     // background-color: @base-background-color;
 
+    // TODO delete me
     .ldfa-panel {
         // background-color: @base-background-color;
     }
 
+    // TODO delete me
     overflow: auto;
 
+    // TODO delete me
     .panels-row {
         display: -webkit-flex;
         -webkit-flex-direction: row;
     }
 
+    // TODO delete me
     .package-panel {
         display: -webkit-flex;
         -webkit-flex-direction: row;
@@ -30,6 +33,140 @@
 
         .inset-panel {
             width: 100%;
+        }
+    }
+
+    .height-full {
+        height: 100%;
+        max-heigh: 100%;
+    }
+
+    .height-half {
+        height: 50vh;
+    }
+
+    .height-third {
+        max-height: 33%;
+    }
+
+    .height-quarter {
+        max-height: 25%;
+    }
+
+    .width-full {
+        width: 100%;
+    }
+
+    .width-half {
+        width: 50%;
+    }
+
+    .width-third {
+        width: 33%;
+    }
+
+    .width-quarter {
+        width: 25%;
+    }
+
+    .flex-container-row {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    .flex-container-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    .flex-container-content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .align-left {
+        justify-content: flex-start;
+    }
+
+    .align-center {
+        justify-content: center;
+    }
+
+    .align-right {
+        justify-content: flex-end;
+    }
+
+    .scrollable {
+        overflow: auto;
+    }
+
+    .results-table {
+        // margin: @component-padding / 2 @component-padding;
+
+        table {
+            width: 100%;
+            border: 1px groove @text-color;
+            display: flex;
+            flex-direction: column;
+        }
+
+        thead {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+        tbody {
+            overflow-y: scroll;
+            // display: block;
+            height: 300px;
+        }
+
+        tbody tr {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        th, td {
+            min-width: 75px;
+            padding: 10px 6px;
+            word-break: break-word;
+            cursor: pointer;
+        }
+
+        tr {
+            &:nth-child(2n + 1) {
+                background-color: @overlay-background-color;
+            }
+            &:hover {
+                background-color: @background-color-selected;
+            }
+        }
+
+        td + td, th + th {
+            border-left: 1px groove @text-color;
+        }
+
+        th {
+            background-color: @tab-bar-background-color;
+            border-bottom: 1px groove @text-color;
+
+            .sort-asc, .sort-desc {
+                float: right;
+                pointer-events: none;
+                &:not(.active) {
+                    opacity: 0.2;
+                }
+            }
+            .sort-desc {
+                margin: -6px -16px 0 0;
+            }
         }
     }
 
