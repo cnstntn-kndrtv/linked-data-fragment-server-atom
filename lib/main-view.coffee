@@ -32,7 +32,7 @@ module.exports = class LDFAView extends View
 
             for i in [0..100]
                 resultStore.addTurtle(i)
-                resultStore.addTriple({s: i, p: i, o: i})
+                resultStore.addTriple({subject: i, predicate: i, object: i})
         )
 
         # results view
@@ -42,9 +42,9 @@ module.exports = class LDFAView extends View
         # TODO STATE!
         state = {
             triples: [
-                {s: 'state1', p: 'state', o: 'state'}
-                {s: 'state2', p: 'state', o: 'state'}
-                {s: 'state3', p: 'state', o: 'state'}
+                {subject: 'state1', predicate: 'state', object: 'state'}
+                {subject: 'state2', predicate: 'state', object: 'state'}
+                {subject: 'state3', predicate: 'state', object: 'state'}
             ]
             turtles: [
                 'state111',

@@ -24,16 +24,14 @@ module.exports = class QueryView extends View
         @tableView.createTable(['subject', 'predicate', 'object'])
 
     addTriple: (triple) ->
-        # console.log triple
-        @tableView.addRow([triple.s, triple.p, triple.o])
+        @tableView.addRow([triple.subject, triple.predicate, triple.object])
 
     setTriples: (triples) ->
-        # console.log triples
-        @clearTriples()
-        for triple in triples
-          @addTriple(triple)
+        rows = []
+        triples.forEach((row) => rows.push([row.subject, row.predicate, row.object]))
+        @tableView.setRows(rows)
 
-    clearTriples: ->
+    clearTriples: () ->
         @tableView.clearTable()
 
     defineStorage: (link) ->

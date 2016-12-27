@@ -1,4 +1,4 @@
-LinkedDataFragmentsAtomView = require '../lib/ldfa-view'
+LinkedDataFragmentsAtomView = require '../lib/main-view'
 
 describe "LinkedDataFragmentsAtomView", ->
   it "has one valid test", ->

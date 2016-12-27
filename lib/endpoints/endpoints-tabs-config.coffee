@@ -3,7 +3,7 @@ module.exports = [
         active: true
         icon: 'icon-file-directory'
         text: 'Local files'
-        target: 'fileEndpointsView'
+        target: 'localEndpointsView'
     },
     {
         icon: 'icon-globe'

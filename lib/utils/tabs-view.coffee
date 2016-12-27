@@ -7,7 +7,6 @@ class TabsView extends View
                 for b in tabs
                     if b.active then active = 'selected' else active = ''
                     if b.icon? and b.icon != '' then icon = "icon #{b.icon}" else icon = ""
-                    console.log 'icon', icon
                     @button class: "btn width-full #{icon} #{active}", 'data-target': b.target, b.text
 
     setHandler: (cb) ->

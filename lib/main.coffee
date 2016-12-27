@@ -34,7 +34,7 @@ module.exports = LinkedDataFragmentsAtom =
         #
 
     createLDFAView: (state) ->
-        LDFAView ?= require './ldfa-view'
+        LDFAView ?= require './main-view'
         new LDFAView(state)
 
     startServer: ->

@@ -1,6 +1,6 @@
 {
   "name": "linked-data-fragments-atom",
-  "main": "./lib/ldfa-main",
+  "main": "./lib/main",
   "version": "0.1.0",
   "description": "Linked data fragments query and development in Atom",
   "author": "Constantin Kondratyev",
@@ -10,8 +10,7 @@
     "semantic web",
     "rdf",
     "owl",
-    "sparql",
-    "server"
+    "sparql"
   ],
   "activationCommands": {
     "atom-workspace": "linked-data-fragments-atom:startServer"
@@ -31,6 +30,9 @@
   "dependencies": {
     "atom-space-pen-views": "latest",
     "datatables.net": "^1.10.13",
-    "ldf-server": "latest"
+    "fs-plus": "^2.9.3",
+    "ldf-server": "latest",
+    "pathwatcher": "^6.7.1",
+    "underscore-plus": "^1.6.6"
   }
 }

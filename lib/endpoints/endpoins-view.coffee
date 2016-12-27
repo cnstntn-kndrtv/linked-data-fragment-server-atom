@@ -1,6 +1,8 @@
 {View, $} = require 'atom-space-pen-views'
 {TabsView} = require '../utils/tabs-view'
 tabsConfig = require './endpoints-tabs-config'
+LocalEndpointsView = require './local/local-endpoints-view'
+GlobalEndpointsView = require './global/global-endpoints-view'
 
 module.exports = class EndpointsListView extends View
     @content: ->
@@ -10,7 +12,8 @@ module.exports = class EndpointsListView extends View
                 @div class: 'panel-body padded', =>
                     @subview 'tabsView', new TabsView(tabsConfig)
                 @div outlet:'tabsContent', class: 'padded', =>
-                    @div 'hi'
+                    @subview 'localEndpointsView', new LocalEndpointsView()
+                    @subview 'globalEndpointsView', new GlobalEndpointsView()
 
     initialize: ->
         @tabsContent.children().each( -> $(@).hide())
@@ -20,7 +23,6 @@ module.exports = class EndpointsListView extends View
         @tabsView.setHandler(@switchTabs)
 
     switchTabs: (target) =>
-        console.log target
-        # if target != ''
-        #     @tabsContent.children().each( -> $(@).hide())
-        #     @[target].show()
+        if target != ''
+            @tabsContent.children().each( -> $(@).hide())
+            @[target].show()

@@ -3,6 +3,7 @@
 // See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
 // for a full listing of what's available.
 @import "ui-variables";
+@import "octicon-mixins";
 
 .ldfa {
     // background-color: @base-background-color;
@@ -122,9 +123,8 @@
         }
 
         tbody {
-            overflow-y: scroll;
-            // display: block;
-            height: 300px;
+            // overflow-y: scroll;
+            // height: 300px;
         }
 
         tbody tr {
@@ -157,16 +157,125 @@
             background-color: @tab-bar-background-color;
             border-bottom: 1px groove @text-color;
 
-            .sort-asc, .sort-desc {
+            &:hover {
+                background-color: @tab-bar-background-color;
+            }
+        }
+
+        // sorting
+        .sort_icon(@name, @size: 12px) {
+            @import "octicon-utf-codes.less";
+            &::after {
+                .icon(@size);
+                content: @@name;
                 float: right;
-                pointer-events: none;
-                &:not(.active) {
-                    opacity: 0.2;
+          }
+        }
+
+        .sorting_desc {
+            .sort_icon(triangle-down);
+        }
+        .sorting_asc {
+            .sort_icon(triangle-up);
+        }
+
+
+        // show # of entries
+        .dataTables_length {
+            padding: @component-padding;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            label {
+                color: @text-color-subtle;
+            }
+            select {
+                background-color: @input-background-color;
+                border: 1px groove @input-border-color;
+                border-radius: @component-border-radius;
+                color: @text-color-subtle;
+                padding: @component-icon-padding;
+                margin-left: @component-icon-padding;
+                margin-right: @component-icon-padding;
+                &:hover {
+                    color: @text-color-highlight;
+                    border: 1px solid @button-background-color-selected;
                 }
             }
-            .sort-desc {
-                margin: -6px -16px 0 0;
+        }
+        // search
+        .dataTables_filter {
+            padding: @component-padding;
+            width: 100%;
+            margin-top: -50px;
+            display: flex;
+            justify-content: flex-start;
+            label {
+                color: @text-color-subtle;
             }
+            input {
+                background-color: @input-background-color;
+                border: 1px groove @input-border-color;
+                border-radius: @component-border-radius;
+                color: @text-color-subtle;
+                padding: @component-icon-padding;
+                margin-left: @component-icon-padding;
+                &:focus {
+                    color: @text-color-highlight;
+                    border: 1px solid @button-background-color-selected;
+                }
+            }
+        }
+
+        .dataTables_paginate {
+            display: inline-block;
+            text-align: right;
+            width: 50%;
+        }
+        // pagination buttons
+        .paginate_button {
+            background-color: @button-background-color;
+            border: 1px groove @button-border-color;
+            padding: @component-padding;
+            color: @text-color;
+            border-radius: @component-border-radius;
+
+            &:hover {
+                background-color: @button-background-color-hover;
+                text-decoration: none;
+            }
+        }
+
+        .disabled {
+            background-color: transparent;
+            border: none;
+            color: @text-color-subtle;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        .current {
+            background-color: @button-background-color-selected;
+            color: @text-color-selected;
+
+            &:hover {
+                background-color: @button-background-color-selected;
+            }
+        }
+
+        .ellipsis {
+            padding: @component-padding;
+            color: @text-color-subtle;
+        }
+
+        .dataTables_info {
+            margin-top: @component-padding * 2;
+            color: @text-color-subtle;
+            width: 50%;
+            text-align: left;
+            display: inline-block;
         }
     }
 
