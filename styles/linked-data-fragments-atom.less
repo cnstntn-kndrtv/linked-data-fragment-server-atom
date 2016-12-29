@@ -7,35 +7,8 @@
 
 .ldfa {
     // background-color: @base-background-color;
-
-    // TODO delete me
-    .ldfa-panel {
-        // background-color: @base-background-color;
-    }
-
     // TODO delete me
     overflow: auto;
-
-    // TODO delete me
-    .panels-row {
-        display: -webkit-flex;
-        -webkit-flex-direction: row;
-    }
-
-    // TODO delete me
-    .package-panel {
-        display: -webkit-flex;
-        -webkit-flex-direction: row;
-        flex: 1;
-
-        .list-group {
-            overflow: hidden;
-        }
-
-        .inset-panel {
-            width: 100%;
-        }
-    }
 
     .height-full {
         height: 100%;
@@ -74,14 +47,14 @@
         display: flex;
         flex-direction: row;
         align-items: stretch;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 
     .flex-container-column {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 
     .flex-container-content {
@@ -106,12 +79,68 @@
         overflow: auto;
     }
 
+    .tool-bar {
+        background-color: transparent;
+        margin-bottom: @component-padding;
+    }
+
+    .tab-bar {
+
+    }
+
+    .text-editor() {
+        min-height: 300px;
+        width: 100%;
+        border: 1px groove @inset-panel-border-color;
+        overflow: auto;
+    }
+
+    .query {
+        .editor {
+            .text-editor;
+            max-height: 300px;
+        }
+    }
+
+    .endpoints-list {
+        .text-editor;
+        padding: @component-padding;
+        background-color: @overlay-background-color;
+        max-height: 300px;
+
+        .list-item {
+            // border: 2px groove green;
+            .input-checkbox {
+                margin-right: @component-icon-padding;
+            }
+            .endpoint-dir {
+                color: @text-color-subtle;
+            }
+            .endpoint-title {
+                color: @text-color-highlight;
+            }
+            .endpoint-link {
+                margin-left: @component-padding * 2;
+                a {
+                    color: @text-color;
+                }
+            }
+        }
+
+        .selected-endpoint {
+            background-color: @background-color-selected;
+            .endpoint-title {
+                color: @text-color-selected;
+            }
+        }
+    }
+
     .results-table {
         // margin: @component-padding / 2 @component-padding;
 
         table {
             width: 100%;
-            border: 1px groove @text-color;
+            border: 1px groove @inset-panel-border-color;
             display: flex;
             flex-direction: column;
         }
@@ -150,12 +179,12 @@
         }
 
         td + td, th + th {
-            border-left: 1px groove @text-color;
+            border-left: 1px groove @inset-panel-border-color;
         }
 
         th {
             background-color: @tab-bar-background-color;
-            border-bottom: 1px groove @text-color;
+            border-bottom: 1px groove @inset-panel-border-color;
 
             &:hover {
                 background-color: @tab-bar-background-color;
@@ -276,6 +305,12 @@
             width: 50%;
             text-align: left;
             display: inline-block;
+        }
+    }
+
+    .results-raw {
+        .editor {
+            .text-editor;
         }
     }
 

@@ -16,7 +16,8 @@ module.exports = class LDFAView extends View
                     @div class: 'width-half', =>
                         @subview 'endpointsListView', new EndpointsListView()
                 @div class: 'height-half width-full', =>
-                    @subview 'resultsView', new ResultsView()
+                    @div class:'flex-container-row width-full height-full', =>
+                        @subview 'resultsView', new ResultsView()
 
     initialize: ({@uri}) ->
         # create result store
@@ -25,7 +26,7 @@ module.exports = class LDFAView extends View
 
         # views settings
         # query view
-        @querySPARQLView.onSendButton(() =>
+        @querySPARQLView.onSendButton () =>
             console.log 'click'
             results = @querySPARQLView.getQueryText()
             resultStore.clearAll()
@@ -33,7 +34,8 @@ module.exports = class LDFAView extends View
             for i in [0..100]
                 resultStore.addTurtle(i)
                 resultStore.addTriple({subject: i, predicate: i, object: i})
-        )
+
+            console.log @endpointsListView.getEndpoints()
 
         # results view
         @resultsView.defineStorage(resultStore)

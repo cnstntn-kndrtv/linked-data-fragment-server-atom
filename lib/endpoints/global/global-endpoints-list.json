@@ -1,0 +1,57 @@
+{
+    "linked-data-fragments": [
+            {
+                "link": "http://data.linkeddatafragments.org/dbpedia",
+                "title": "DBpedia"
+            }, {
+                "link": "http://data.linkeddatafragments.org/geonames",
+                "title": "Geo Names"
+            }, {
+                "link": "http://data.linkeddatafragments.org/dblp",
+                "title": "dblp"
+            }, {
+                "link": "http://data.linkeddatafragments.org/linkedgeodata",
+                "title": "Linked Geo Data"
+            }, {
+                "link": "http://data.linkeddatafragments.org/subjectiveeye3d",
+                "title": "Subjective EYE 3d"
+            }, {
+                "link": "http://data.linkeddatafragments.org/dbpediapagerank",
+                "title": "DBpedia page rank"
+            }
+        ],
+
+    "sparql": [
+        {
+            "link": "http://dbpedia.org/sparql",
+            "title": "DBpedia"
+        }, {
+            "link": "http://eu.dbpedia.org/sparql",
+            "title": "DBpedia in Basque"
+        }, {
+            "link": "http://nl.dbpedia.org/sparql",
+            "title": "DBpedia in Dutch"
+        }, {
+            "link": "http://fr.dbpedia.org/sparql",
+            "title": "DBpedia in French"
+        },
+        {
+            "link": "http://de.dbpedia.org/sparql",
+            "title": "DBpedia in German"
+        }, {
+            "link": "http://ja.dbpedia.org/sparql",
+            "title": "DBpedia in Japanese"
+        }, {
+            "link": "http://pt.dbpedia.org/sparql",
+            "title": "DBpedia in Portuguese"
+        }, {
+            "link": "http://es.dbpedia.org/sparql",
+            "title": "DBpedia in Spanish"
+        },
+        {
+            "link": "http://live.dbpedia.org/sparql",
+            "title": "DBpedia-Live"
+        }
+    ]
+
+}

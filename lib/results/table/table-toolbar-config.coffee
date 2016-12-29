@@ -4,13 +4,13 @@ module.exports = [
         content: [
             {
                 visible: true
-                style: 'btn-sm btn-primary icon icon-code'
+                style: 'btn-sm icon icon-code'
                 text: 'links'
                 outlet: 'links'
             },
             {
                 visible: true
-                style: 'btn-sm btn-primary icon icon-ellipsis'
+                style: 'btn-sm icon icon-ellipsis'
                 text: 'filter'
                 outlet: 'filterResults'
             },
@@ -22,7 +22,7 @@ module.exports = [
         content: [
             {
                 visible: true
-                style: 'btn-sm btn-primary icon icon-file-text'
+                style: 'btn-sm icon icon-file-text'
                 text: 'csv'
                 outlet: 'csv'
             }
@@ -33,7 +33,7 @@ module.exports = [
         content: [
             {
                 visible: true
-                style: 'btn-sm btn-primary icon icon-link-external'
+                style: 'btn-sm icon icon-link-external'
                 text: 'window'
                 outlet: 'newWindow'
             }

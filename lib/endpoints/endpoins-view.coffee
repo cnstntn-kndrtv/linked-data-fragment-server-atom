@@ -26,3 +26,9 @@ module.exports = class EndpointsListView extends View
         if target != ''
             @tabsContent.children().each( -> $(@).hide())
             @[target].show()
+
+    getEndpoints: () =>
+        @endpoints = {
+            "local": @localEndpointsView.getEndpoints(),
+            "global": @globalEndpointsView.getEndpoints()
+        }

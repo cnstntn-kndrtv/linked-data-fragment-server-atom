@@ -46,7 +46,7 @@ module.exports = class TableView extends View
         @toolbar.newWindow.click => @changeWindow()
 
     showLinks: () ->
-        @toolbar.links.toggleClass('selected')
+        @toolbar.links.toggleClass 'selected'
         console.log 'links'
 
     showFilter: () ->

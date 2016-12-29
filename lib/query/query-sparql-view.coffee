@@ -5,16 +5,12 @@ module.exports = class QueryView extends View
         @div class: 'atom-panel padded', =>
             @div class: 'inset-panel', =>
                 @div class: 'panel-heading', 'Query'
-                @div class: 'panel-body padded height-full', =>
+                @div class: 'panel-body padded height-full query', =>
                     @subview 'queryEditor', new TextEditorView(placeHolderText: 'type your SPARQL query here')
                     @div class:'block padded', =>
                         @button outlet: 'send', class:'btn btn-primary icon icon-playback-play', 'Execute'
 
     initialize: ->
-        # console.log @queryEditor
-        @queryEditor.element.style.minHeight = '300px'
-        @queryEditor.element.style.height = '100%'
-        @queryEditor.element.style.width = '100%'
         @setGrammar()
         @focusQueryEditor()
 

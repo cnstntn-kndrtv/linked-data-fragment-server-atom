@@ -2,7 +2,7 @@
 
 class ToolbarView extends View
     @content: (sections = []) ->
-        @div class: 'flex-container-row', =>
+        @div class: 'flex-container-row tool-bar', =>
             for section in sections
                 switch section.align
                     when 'left' then align = 'align-left'

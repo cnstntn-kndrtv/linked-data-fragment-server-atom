@@ -7,14 +7,10 @@ module.exports = class QueryView extends View
         @div =>
             @div =>
                 @subview 'toolbar', new ToolbarView(toolbarConfig)
-            @div class: 'padded', =>
+            @div class: 'padded results-raw', =>
                 @subview 'queryEditor', new TextEditorView()
 
     initialize: ->
-        # console.log @queryEditor
-        @queryEditor.element.style.minHeight = '300px'
-        @queryEditor.element.style.height = '100%'
-        @queryEditor.element.style.width = '100%'
         @setGrammar()
 
     setText: (str) ->

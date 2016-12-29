@@ -1,0 +1,10 @@
+{
+    "includedExtensions": [
+        ".js",
+        ".less"
+    ],
+    "excludedPaths": [
+        ".git",
+        "node_modules"
+    ]
+}
