@@ -1,7 +1,7 @@
 {View} = require 'atom-space-pen-views'
 {CompositeDisposable} = require 'atom'
 EndpointsListView = require './endpoints/endpoins-view'
-QuerySPARQLView = require './query/query-sparql-view'
+QueryView = require './query/query-view'
 ResultsView = require './results/results-view'
 ResultStore = require './results/result-store'
 # Server = require './server/server.js'
@@ -12,10 +12,10 @@ module.exports = class LDFAView extends View
             @div class: 'flex-container-column height-full', =>
                 @div class: 'flex-container-row height-half', =>
                     @div class: 'width-half', =>
-                        @subview 'querySPARQLView', new QuerySPARQLView()
+                        @subview 'queryView', new QueryView()
                     @div class: 'width-half', =>
                         @subview 'endpointsListView', new EndpointsListView()
-                @div class: 'height-half width-full', =>
+                @div class: 'width-full', =>
                     @div class:'flex-container-row width-full height-full', =>
                         @subview 'resultsView', new ResultsView()
 
@@ -26,9 +26,9 @@ module.exports = class LDFAView extends View
 
         # views settings
         # query view
-        @querySPARQLView.onSendButton () =>
+        @queryView.onSendButton () =>
             console.log 'click'
-            results = @querySPARQLView.getQueryText()
+            # results = @queryView.getQueryText()
             resultStore.clearAll()
 
             for i in [0..100]
@@ -54,7 +54,7 @@ module.exports = class LDFAView extends View
                 'state333'
             ]
         }
-        @querySPARQLView.setQueryText('later i will get it from state')
+        @queryView.setSPARQLQueryText('later i will get it from state')
         resultStore.setTriples(state.triples)
         resultStore.setTurtles(state.turtles)
 

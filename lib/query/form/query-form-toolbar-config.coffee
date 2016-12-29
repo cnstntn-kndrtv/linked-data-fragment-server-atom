@@ -3,8 +3,8 @@ module.exports = [
         align: 'right'
         content: [
             {
-                style: 'btn-sm icon icon-sync'
-                text: 'Reload'
+                style: 'btn-sm icon icon-flame'
+                text: 'Yuhoooo'
                 outlet: 'reload'
             }
         ]

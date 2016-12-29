@@ -7,8 +7,6 @@ requireUncache = require '../../utils/require-uncache'
 toolbarConfig = require './global-endpoints-toolbar-config'
 
 module.exports = class LocalEndpointsView extends View
-    panel: null
-
     @content: ->
         @div =>
             @div =>
