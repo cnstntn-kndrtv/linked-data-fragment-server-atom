@@ -26,7 +26,7 @@ module.exports = class LDFAView extends View
 
         # views settings
         # query view
-        @queryView.onSendButton () =>
+        @queryView.querySparqlView.onSendButton () =>
             console.log 'click'
             # results = @queryView.getQueryText()
             resultStore.clearAll()

@@ -1,7 +1,7 @@
 {
     "includedExtensions": [
-        ".js",
-        ".less"
+        ".n3",
+        ".ttl"
     ],
     "excludedPaths": [
         ".git",

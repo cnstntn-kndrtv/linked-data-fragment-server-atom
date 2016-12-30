@@ -13,7 +13,7 @@ module.exports = class LocalEndpointsView extends View
             @div =>
                 @subview 'toolbar', new ToolbarView(toolbarConfig)
             @div class: 'srcollbale endpoints-list', =>
-                @ul class: 'list-tree', outlet: 'endpointsListView'
+                @ul class: 'list-tree has-collapsable-children', outlet: 'endpointsListView'
 
     initialize: (state) ->
         @refresh()
@@ -49,16 +49,25 @@ module.exports = class LocalEndpointsView extends View
         fileList
 
     createFileList: (data) =>
-        ul = $('<ul>')
+        ul = $ '<ul>'
         ul.addClass 'list-tree'
         data.map (el) =>
 
-            if (el.type == 'dir')
-                li = $("<li class='list-nested-item'>")
+            if el.type == 'dir'
+                li = $ "<li class='list-nested-item'>"
+
                 if (el.pathName == path.basename el.rootPath) then icon = 'icon-repo'
                 else icon = 'icon-file-directory'
-                if (el.content.length > 0)
+                if el.content.length > 0
                     li.append "<div class='list-item'><span class='endpoint-dir icon #{icon}'>#{el.pathName}</span></div>"
+                    li.click (e) =>
+                        e.stopPropagation()
+                        if e.target.localName == 'li'
+                            $(e.target).toggleClass 'collapsed'
+                        else if e.target.localName == 'div' and e.target.classList[0] == 'list-item'
+                            $(e.target.parentNode).toggleClass 'collapsed'
+                        else if e.target.localName == 'span' and e.target.classList[0] == 'endpoint-dir'
+                            $(e.target.parentNode.parentNode).toggleClass 'collapsed'
 
                     ul.append(
                         li.append @createFileList el.content
@@ -67,21 +76,21 @@ module.exports = class LocalEndpointsView extends View
             else
                 ul.append(
                     $("<li class='list-item'>")
-                        .attr('id', "local-endpoint-#{el.path}")
+                        .attr 'id', "local-endpoint-#{el.path}"
                         .append(
-                            $("<input class='input-checkbox' type='checkbox'>")
-                                .attr('data-target', "#{el.path}")
+                            $ "<input class='input-checkbox' type='checkbox'>"
+                                .attr 'data-target', "#{el.path}"
                                 .change (e) => @selectEndpoint e.target.dataset.target
                         )
                         .append "<span class='endpoint-title'>#{el.fileName}</span>"
                         .click (e) =>
-                            if (e.target.localName != 'input')
+                            if e.target.localName != 'input'
                                 $(e.currentTarget).find('input:checkbox').trigger('click')
                     )
 
 
     selectEndpoint: (id, type = 'files') ->
-        if (!@selectedEndpoints[type])
+        if !@selectedEndpoints[type]
             @selectedEndpoints[type] = []
         @selectedEndpoints[type].push id
         $(document.getElementById "local-endpoint-#{id}" ).toggleClass 'selected-endpoint'

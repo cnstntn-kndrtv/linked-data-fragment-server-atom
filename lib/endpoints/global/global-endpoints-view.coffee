@@ -34,17 +34,13 @@ module.exports = class LocalEndpointsView extends View
                     .attr('data-target', "#{el.link}")
                     .change (e) =>
                         @selectEndpoint e.target.dataset.target, type
-
                 endpointTitle = $("<div class='endpoint-title'>#{el.title}</div>")
                 endpointTitle.prepend checkbox
-
                 endpointLink = $("<div class='endpoint-link'><a href='#{el.link}'>#{el.link}</a></div>")
-
                 content = $('<span>')
                 content
                     .append endpointTitle
                     .append endpointLink
-
                 listObj.append(
                     $("<li class='list-item'>")
                         .attr 'id', "global-endpoint-#{el.link}"
@@ -54,24 +50,32 @@ module.exports = class LocalEndpointsView extends View
                                 $(e.currentTarget).find('input:checkbox').trigger('click')
                 )
 
-        createParentUL = (title) =>
-            template = "<li class='list-nested-item'>
+        createParentList = (title) =>
+            template = $ "<li class='list-nested-item'>
                                 <div class='list-item'>
-                                    <span class='icon icon-repo endpoint-dir'>#{title}</span>
+                                    <span class='endpoint-dir icon icon-repo'>#{title}</span>
                                 </div>
                             </li>"
+            template.click (e) =>
+                e.stopPropagation()
+                if e.target.localName == 'li'
+                    $(e.target).toggleClass 'collapsed'
+                else if e.target.localName == 'div' and e.target.classList[0] == 'list-item'
+                    $(e.target.parentNode).toggleClass 'collapsed'
+                else if e.target.localName == 'span' and e.target.classList[0] == 'endpoint-dir'
+                    $(e.target.parentNode.parentNode).toggleClass 'collapsed'
+
             template
 
-        ldfList = $("<ul class='list-tree'>")
-        ldfListContent = $(createParentUL 'Linked Data Fragments')
-        # ldfListContent.click (e) => $(e.currentTarget).toggleClass 'collapsed'
+        ldfList = $("<ul class='list-tree has-collapsable-children'>")
+        ldfListContent = $(createParentList 'Linked Data Fragments')
         ldfEndpoints = $("<ul class='list-tree'>")
         createList('linked-data-fragments', ldfEndpoints)
         ldfListContent.append ldfEndpoints
         ldfList.append ldfListContent
 
-        sparqlList = $("<ul class='list-tree'>")
-        sparqlListContent = $(createParentUL 'SPARQL Endpoints')
+        sparqlList = $("<ul class='list-tree has-collapsable-children'>")
+        sparqlListContent = $(createParentList 'SPARQL Endpoints')
         sparqlEndpoints = $("<ul class='list-tree'>")
         createList('sparql', sparqlEndpoints)
         sparqlListContent.append sparqlEndpoints
