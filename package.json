@@ -33,6 +33,12 @@
     "fs-plus": "^2.9.3",
     "ldf-server": "latest",
     "pathwatcher": "^6.7.1",
-    "underscore-plus": "^1.6.6"
+    "underscore-plus": "^1.6.6",
+    "levelgraph": "latest",
+    "levelgraph-n3": "latest",
+    "levelgraph-jsonld": "latest",
+    "level-js": "latest",
+    "levelup": "latest",
+    "level-sublevel": "latest"
   }
 }
