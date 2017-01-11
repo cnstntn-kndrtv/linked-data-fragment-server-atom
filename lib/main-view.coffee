@@ -5,6 +5,7 @@ QueryView = require './query/query-view'
 ResultsView = require './results/results-view'
 ResultStore = require './results/result-store'
 # Server = require './server/server.js'
+{Store} = require './parseAndStore/store.js'
 
 module.exports = class LDFAView extends View
     @content: ->
@@ -24,18 +25,41 @@ module.exports = class LDFAView extends View
         rs = new ResultStore
         resultStore = rs.define('results')
 
+        storeConfig = {
+            dbName: "KloudOne",
+            storeName: "resultStore",
+            storeSchema: ['subject', 'predicate', 'object'],
+            inMemoryLimit: 5,
+        }
+
+        store = new Store(storeConfig)
+
         # views settings
         # query view
         @queryView.querySparqlView.onSendButton () =>
             console.log 'click'
+
+            new Promise((resolve, reject) => 
+                for i in [0...20]
+                    time = new Date()
+                    time = "#{time.getHours()}:#{time.getMinutes()}:#{time.getSeconds()}"
+                    store.put({subject: i, predicate: i, object: i})
+                resolve('ok');
+            )
+                .then((msg) =>
+                    console.log(msg);
+                    store.count()
+                )
+
+
             # results = @queryView.getQueryText()
-            resultStore.clearAll()
-
-            for i in [0..100]
-                resultStore.addTurtle(i)
-                resultStore.addTriple({subject: i, predicate: i, object: i})
-
-            console.log @endpointsListView.getEndpoints()
+            # resultStore.clearAll()
+            #
+            # for i in [0..100]
+            #     resultStore.addTurtle(i)
+            #     resultStore.addTriple({subject: i, predicate: i, object: i})
+            #
+            # console.log @endpointsListView.getEndpoints()
 
         # results view
         @resultsView.defineStorage(resultStore)
