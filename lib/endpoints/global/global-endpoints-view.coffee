@@ -1,4 +1,4 @@
-{$, View} = require 'atom-space-pen-views'
+{$, $$, View} = require 'atom-space-pen-views'
 fs = require 'fs-plus'
 path = require 'path'
 requireUncache = require '../../utils/require-uncache'
@@ -51,11 +51,10 @@ module.exports = class LocalEndpointsView extends View
                 )
 
         createParentList = (title) =>
-            template = $ "<li class='list-nested-item'>
-                                <div class='list-item'>
-                                    <span class='endpoint-dir icon icon-repo'>#{title}</span>
-                                </div>
-                            </li>"
+            template = $$ ->
+                @li class: 'list-nested-item collapsed', =>
+                    @div class: 'list-item', =>
+                        @span class: 'endpoint-dir icon icon-repo', title
             template.click (e) =>
                 e.stopPropagation()
                 if e.target.localName == 'li'
@@ -67,21 +66,32 @@ module.exports = class LocalEndpointsView extends View
 
             template
 
-        ldfList = $("<ul class='list-tree has-collapsable-children'>")
+        mainUlTemplate = "<ul class='list-tree has-collapsable-children'>"
+        endpointsUlTemplate = "<ul class='list-tree'>"
+
+        ldfList = $(mainUlTemplate)
         ldfListContent = $(createParentList 'Linked Data Fragments')
-        ldfEndpoints = $("<ul class='list-tree'>")
+        ldfEndpoints = $(endpointsUlTemplate)
         createList('linked-data-fragments', ldfEndpoints)
         ldfListContent.append ldfEndpoints
         ldfList.append ldfListContent
 
-        sparqlList = $("<ul class='list-tree has-collapsable-children'>")
+        sparqlList = $(mainUlTemplate)
         sparqlListContent = $(createParentList 'SPARQL Endpoints')
-        sparqlEndpoints = $("<ul class='list-tree'>")
+        sparqlEndpoints = $(endpointsUlTemplate)
         createList('sparql', sparqlEndpoints)
         sparqlListContent.append sparqlEndpoints
         sparqlList.append sparqlListContent
 
+        vocabList = $(mainUlTemplate)
+        vocabListContent = $(createParentList 'Vocabularies')
+        vocabEndpoints = $(endpointsUlTemplate)
+        createList('vocabularies', vocabEndpoints)
+        vocabListContent.append vocabEndpoints
+        vocabList.append vocabListContent
+
         @endpointsListView
+            .append vocabList
             .append ldfList
             .append sparqlList
 
@@ -93,6 +103,7 @@ module.exports = class LocalEndpointsView extends View
         if (!@selectedEndpoints[type])
             @selectedEndpoints[type] = []
         @selectedEndpoints[type].push id
+        # TODO MAP
         $(document.getElementById "global-endpoint-#{id}" ).toggleClass 'selected-endpoint'
 
     getEndpoints: () ->

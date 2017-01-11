@@ -52,6 +52,32 @@
             "link": "http://live.dbpedia.org/sparql",
             "title": "DBpedia-Live"
         }
-    ]
+    ],
 
+    "vocabularies": [
+        {
+            "link": "http://www.lexinfo.net/ontology/2.0/lexinfo.owl",
+            "title": "LexInfo"
+        },
+        {
+            "link": "http://www.w3.org/TR/skos-reference/skos.rdf",
+            "title": "SKOS"
+        },
+        {
+            "link": "https://www.w3.org/1999/02/22-rdf-syntax-ns",
+            "title": "RDF"
+        },
+        {
+            "link": "http://www.w3.org/2000/01/rdf-schema",
+            "title": "RDF Schema"
+        },
+        {
+            "link": "http://purl.org/dc/elements/1.1/",
+            "title": "Dublin Core"
+        },
+        {
+            "link": "http://purl.org/dc/terms/",
+            "title": "Dublin Core terms"
+        }
+    ]
 }

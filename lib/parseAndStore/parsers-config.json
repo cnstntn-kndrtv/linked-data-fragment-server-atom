@@ -1,0 +1,11 @@
+{
+    "local": {
+        "['n3', 'ttl']": "n3Parser",
+        "['xml', 'rdf']": "rdfXmlParser",
+    },
+    "global": {
+        "linked-data-fragments": "ldfaClient",
+        "sparql": "sparqlClient",
+        "vocabularies": "iDontKnowClient"
+    }
+}
